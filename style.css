@@ -1,0 +1,569 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    color: white;
+    background: #03050f;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.landing-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 40%,
+            #171b3d 0%,
+            #090b1c 55%,
+            #03050f 100%);
+}
+
+.intro {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+    padding: 40px 25px;
+
+    animation: fadeIn 2s ease;
+}
+
+.small-text {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 22px;
+}
+
+.intro h2 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(20px, 5vw, 36px);
+    letter-spacing: 10px;
+    margin-bottom: 6px;
+}
+
+.intro h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 11vw, 96px);
+    line-height: 1.05;
+    font-weight: normal;
+    letter-spacing: 1px;
+
+    margin: 12px 0 26px;
+
+    background: linear-gradient(180deg,
+            #ffffff,
+            #c8d0ff);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 16px;
+    line-height: 1.85;
+    opacity: 0.75;
+    margin-top: 10px;
+}
+
+.scroll-hint {
+    display: inline-block;
+    margin-top: 45px;
+
+    padding: 15px 36px;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+
+    color: white;
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+
+    transition: all 0.3s ease;
+}
+
+.scroll-hint:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(3px);
+
+    box-shadow:
+        0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================
+   STAR FIELD
+========================= */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+
+    color: #ffffff;
+
+    font-size: var(--star-size);
+    opacity: var(--star-opacity);
+
+    animation:
+        starFloat var(--star-duration) ease-in-out infinite;
+
+    animation-delay: var(--star-delay);
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+.star:nth-child(3n) {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.star:nth-child(4n) {
+    font-size: calc(var(--star-size) * 0.7);
+}
+
+.star:nth-child(5n) {
+    font-size: calc(var(--star-size) * 1.25);
+}
+
+@keyframes starFloat {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(var(--float-x),
+                var(--float-y),
+                0);
+    }
+
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   OPEN WHEN SECTION
+========================= */
+
+.open-when-section {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 90px 22px 20px;
+
+    text-align: center;
+}
+
+.section-label {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    opacity: 0.45;
+    margin-bottom: 15px;
+}
+
+.open-when-section h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 8vw, 55px);
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+}
+
+.section-intro {
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.5;
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   LETTER GRID
+========================= */
+
+.letters-grid {
+    width: min(760px, 100%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+
+/* =========================
+   LETTER CARD
+========================= */
+
+.letter-card {
+    margin: 0;
+    padding: 26px 18px;
+
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    letter-spacing: 0;
+
+    cursor: pointer;
+
+    transition: all 0.35s ease;
+}
+
+.letter-card:hover {
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, 0.09);
+
+    border-color: rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(170, 150, 255, 0.12);
+}
+
+.letter-icon {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.letter-title {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.letter-hint {
+    margin-top: 9px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.35;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+    display: block;
+    width: 100%;
+    clear: both;
+
+    margin: 70px 0 0;
+    padding: 30px 20px 40px;
+
+    box-sizing: border-box;
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: rgba(255, 255, 255, 0.32);
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.site-footer .footer-credit {
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.22);
+    line-height: 1.6;
+}
+
+
+/* =========================
+   LETTER MODAL
+========================= */
+
+.letter-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 110;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(3, 5, 15, 0.94);
+
+    backdrop-filter: blur(15px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.5s ease;
+}
+
+.letter-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================
+   LETTER PAPER
+========================= */
+
+.letter-paper {
+    position: relative;
+
+    width: min(520px, 100%);
+
+    padding: 55px 40px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    background: #f5f0e6;
+
+    color: #29263a;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6);
+
+    transform: translateY(25px) rotate(-1deg) scale(0.95);
+
+    transition: all 0.5s ease;
+}
+
+.letter-modal.active .letter-paper {
+    transform: translateY(0) rotate(0deg) scale(1);
+}
+
+
+/* =========================
+   CLOSE LETTER
+========================= */
+
+.close-letter {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #29263a;
+
+    font-size: 28px;
+
+    opacity: 0.45;
+
+    letter-spacing: 0;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+.close-letter:hover {
+    background: transparent;
+
+    color: #29263a;
+
+    box-shadow: none;
+
+    transform: none;
+
+    opacity: 1;
+}
+
+
+/* =========================
+   LETTER CONTENT
+========================= */
+
+.letter-small {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.45;
+
+    margin-bottom: 20px;
+}
+
+.letter-envelope {
+    font-size: 45px;
+
+    margin-bottom: 20px;
+}
+
+.letter-paper h2 {
+    font-family: Georgia, serif;
+
+    font-size: 26px;
+
+    font-weight: normal;
+
+    letter-spacing: 0;
+
+    margin: 0;
+
+    line-height: 1.35;
+}
+
+.letter-divider {
+    width: 45px;
+
+    height: 1px;
+
+    background: rgba(41, 38, 58, 0.25);
+
+    margin: 25px auto;
+}
+
+.letter-message {
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #29263a;
+}
+
+.letter-signature {
+    margin-top: 30px;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+    opacity: 0.55;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .open-when-section {
+        padding-top: 60px;
+    }
+
+    .letters-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .letter-card {
+        min-height: 150px;
+    }
+
+    .letter-paper {
+        padding: 45px 25px;
+    }
+
+    .letter-paper h2 {
+        font-size: 22px;
+    }
+
+    .letter-message {
+        font-size: 16px;
+    }
+
+}
